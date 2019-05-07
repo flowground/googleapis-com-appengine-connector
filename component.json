@@ -1,0 +1,696 @@
+{
+    "title": "App Engine Admin",
+    "description": "Provisions and manages developers' App Engine applications.",
+    "docsUrl": "https://cloud.google.com/appengine/docs/admin-api/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/appengine/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://appengine.googleapis.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "appengine_apps_create": {
+            "main": "./lib/actions/appengine_apps_create.js",
+            "title": "Creates an App Engine application for a Google Cloud Platform project. Required fields:\nid - The ID of the target Cloud Platform project.\nlocation - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).",
+            "description": "Creates an App Engine application for a Google Cloud Platform project. Required fields:\nid - The ID of the target Cloud Platform project.\nlocation - The region (https://cloud.google.com/appengine/docs/locations) where you want the App Engine application located.For more information about App Engine applications, see Managing Projects, Applications, and Billing (https://cloud.google.com/appengine/docs/standard/python/console/).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_get": {
+            "main": "./lib/actions/appengine_apps_get.js",
+            "title": "Gets information about an application.",
+            "description": "Gets information about an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_patch": {
+            "main": "./lib/actions/appengine_apps_patch.js",
+            "title": "Updates the specified Application resource. You can update the following fields:\nauth_domain - Google authentication domain for controlling user access to the application.\ndefault_cookie_expiration - Cookie expiration policy for the application.",
+            "description": "Updates the specified Application resource. You can update the following fields:\nauth_domain - Google authentication domain for controlling user access to the application.\ndefault_cookie_expiration - Cookie expiration policy for the application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedCertificates_list": {
+            "main": "./lib/actions/appengine_apps_authorizedCertificates_list.js",
+            "title": "Lists all SSL certificates the user is authorized to administer.",
+            "description": "Lists all SSL certificates the user is authorized to administer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedCertificates_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedCertificates_create": {
+            "main": "./lib/actions/appengine_apps_authorizedCertificates_create.js",
+            "title": "Uploads the specified SSL certificate.",
+            "description": "Uploads the specified SSL certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedCertificates_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedCertificates_delete": {
+            "main": "./lib/actions/appengine_apps_authorizedCertificates_delete.js",
+            "title": "Deletes the specified SSL certificate.",
+            "description": "Deletes the specified SSL certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedCertificates_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedCertificates_get": {
+            "main": "./lib/actions/appengine_apps_authorizedCertificates_get.js",
+            "title": "Gets the specified SSL certificate.",
+            "description": "Gets the specified SSL certificate.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedCertificates_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedCertificates_patch": {
+            "main": "./lib/actions/appengine_apps_authorizedCertificates_patch.js",
+            "title": "Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.",
+            "description": "Updates the specified SSL certificate. To renew a certificate and maintain its existing domain mappings, update certificate_data with a new certificate. The new certificate must be applicable to the same domains as the original certificate. The certificate display_name may also be updated.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedCertificates_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_authorizedDomains_list": {
+            "main": "./lib/actions/appengine_apps_authorizedDomains_list.js",
+            "title": "Lists all domains the user is authorized to administer.",
+            "description": "Lists all domains the user is authorized to administer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_authorizedDomains_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_domainMappings_list": {
+            "main": "./lib/actions/appengine_apps_domainMappings_list.js",
+            "title": "Lists the domain mappings on an application.",
+            "description": "Lists the domain mappings on an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_domainMappings_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_domainMappings_create": {
+            "main": "./lib/actions/appengine_apps_domainMappings_create.js",
+            "title": "Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains.",
+            "description": "Maps a domain to an application. A user must be authorized to administer a domain in order to map it to an application. For a list of available authorized domains, see AuthorizedDomains.ListAuthorizedDomains.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_domainMappings_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_domainMappings_delete": {
+            "main": "./lib/actions/appengine_apps_domainMappings_delete.js",
+            "title": "Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource.",
+            "description": "Deletes the specified domain mapping. A user must be authorized to administer the associated domain in order to delete a DomainMapping resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_domainMappings_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_domainMappings_get": {
+            "main": "./lib/actions/appengine_apps_domainMappings_get.js",
+            "title": "Gets the specified domain mapping.",
+            "description": "Gets the specified domain mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_domainMappings_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_domainMappings_patch": {
+            "main": "./lib/actions/appengine_apps_domainMappings_patch.js",
+            "title": "Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource.",
+            "description": "Updates the specified domain mapping. To map an SSL certificate to a domain mapping, update certificate_id to point to an AuthorizedCertificate resource. A user must be authorized to administer the associated domain in order to update a DomainMapping resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_domainMappings_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_list": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_list.js",
+            "title": "Lists the firewall rules of an application.",
+            "description": "Lists the firewall rules of an application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_create": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_create.js",
+            "title": "Creates a firewall rule for the application.",
+            "description": "Creates a firewall rule for the application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_delete": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_delete.js",
+            "title": "Deletes the specified firewall rule.",
+            "description": "Deletes the specified firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_get": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_get.js",
+            "title": "Gets the specified firewall rule.",
+            "description": "Gets the specified firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_patch": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_patch.js",
+            "title": "Updates the specified firewall rule.",
+            "description": "Updates the specified firewall rule.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_firewall_ingressRules_batchUpdate": {
+            "main": "./lib/actions/appengine_apps_firewall_ingressRules_batchUpdate.js",
+            "title": "Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an \"allow all\" rule is explicitly added to the end of the list.",
+            "description": "Replaces the entire firewall ruleset in one bulk operation. This overrides and replaces the rules of an existing firewall with the new rules.If the final rule does not match traffic with the '*' wildcard IP range, then an \"allow all\" rule is explicitly added to the end of the list.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_firewall_ingressRules_batchUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_locations_list": {
+            "main": "./lib/actions/appengine_apps_locations_list.js",
+            "title": "Lists information about the supported locations for this service.",
+            "description": "Lists information about the supported locations for this service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_locations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_locations_get": {
+            "main": "./lib/actions/appengine_apps_locations_get.js",
+            "title": "Gets information about a location.",
+            "description": "Gets information about a location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_locations_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_operations_list": {
+            "main": "./lib/actions/appengine_apps_operations_list.js",
+            "title": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding allows API services to override the binding to use different resource name schemes, such as users/*/operations. To override the binding, API services can add a binding such as \"/v1/{name=users/*}/operations\" to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.",
+            "description": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns UNIMPLEMENTED.NOTE: the name binding allows API services to override the binding to use different resource name schemes, such as users/*/operations. To override the binding, API services can add a binding such as \"/v1/{name=users/*}/operations\" to their service configuration. For backwards compatibility, the default name includes the operations collection id, however overriding users must ensure the name binding is the parent resource, without the operations collection id.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_operations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_operations_get": {
+            "main": "./lib/actions/appengine_apps_operations_get.js",
+            "title": "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.",
+            "description": "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_operations_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_list": {
+            "main": "./lib/actions/appengine_apps_services_list.js",
+            "title": "Lists all the services in the application.",
+            "description": "Lists all the services in the application.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_delete": {
+            "main": "./lib/actions/appengine_apps_services_delete.js",
+            "title": "Deletes the specified service and all enclosed versions.",
+            "description": "Deletes the specified service and all enclosed versions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_get": {
+            "main": "./lib/actions/appengine_apps_services_get.js",
+            "title": "Gets the current configuration of the specified service.",
+            "description": "Gets the current configuration of the specified service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_patch": {
+            "main": "./lib/actions/appengine_apps_services_patch.js",
+            "title": "Updates the configuration of the specified service.",
+            "description": "Updates the configuration of the specified service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_list": {
+            "main": "./lib/actions/appengine_apps_services_versions_list.js",
+            "title": "Lists the versions of a service.",
+            "description": "Lists the versions of a service.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_create": {
+            "main": "./lib/actions/appengine_apps_services_versions_create.js",
+            "title": "Deploys code and resource files to a new version.",
+            "description": "Deploys code and resource files to a new version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_delete": {
+            "main": "./lib/actions/appengine_apps_services_versions_delete.js",
+            "title": "Deletes an existing Version resource.",
+            "description": "Deletes an existing Version resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_get": {
+            "main": "./lib/actions/appengine_apps_services_versions_get.js",
+            "title": "Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource.",
+            "description": "Gets the specified Version resource. By default, only a BASIC_VIEW will be returned. Specify the FULL_VIEW parameter to get the full resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_patch": {
+            "main": "./lib/actions/appengine_apps_services_versions_patch.js",
+            "title": "Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment\ninstance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment:\nautomatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment:\nserving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible environment\nserving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment:\nautomatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)",
+            "description": "Updates the specified Version resource. You can specify the following fields depending on the App Engine environment and type of scaling that the version resource uses:Standard environment\ninstance_class (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic scaling in the standard environment:\nautomatic_scaling.min_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.max_idle_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomaticScaling.standard_scheduler_settings.max_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.min_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.target_cpu_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)\nautomaticScaling.standard_scheduler_settings.target_throughput_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic scaling or manual scaling in the standard environment:\nserving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)Flexible environment\nserving_status (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic scaling in the flexible environment:\nautomatic_scaling.min_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.max_total_instances (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.cool_down_period_sec (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)\nautomatic_scaling.cpu_utilization.target_utilization (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_instances_list": {
+            "main": "./lib/actions/appengine_apps_services_versions_instances_list.js",
+            "title": "Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).",
+            "description": "Lists the instances of a version.Tip: To aggregate details about instances over time, see the Stackdriver Monitoring API (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_instances_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_instances_delete": {
+            "main": "./lib/actions/appengine_apps_services_versions_instances_delete.js",
+            "title": "Stops a running instance.",
+            "description": "Stops a running instance.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_instances_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_instances_get": {
+            "main": "./lib/actions/appengine_apps_services_versions_instances_get.js",
+            "title": "Gets instance information.",
+            "description": "Gets instance information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_instances_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_services_versions_instances_debug": {
+            "main": "./lib/actions/appengine_apps_services_versions_instances_debug.js",
+            "title": "Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in \"debug mode\", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.",
+            "description": "Enables debugging on a VM instance. This allows you to use the SSH command to connect to the virtual machine where the instance lives. While in \"debug mode\", the instance continues to serve live traffic. You should delete the instance when you are done debugging and then allow the system to take over and determine if another instance should be started.Only applicable for instances in App Engine flexible environment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_services_versions_instances_debug.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "appengine_apps_repair": {
+            "main": "./lib/actions/appengine_apps_repair.js",
+            "title": "Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account.",
+            "description": "Recreates the required App Engine features for the specified App Engine application, for example a Cloud Storage bucket or App Engine service account. Use this method if you receive an error message about a missing feature, for example, Error retrieving the App Engine service account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/appengine_apps_repair.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
